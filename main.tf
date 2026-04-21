@@ -123,6 +123,17 @@ resource "aws_api_gateway_stage" "prod" {
   stage_name    = "prod"
 }
 
+resource "aws_api_gateway_method_settings" "throttle" {
+  rest_api_id = aws_api_gateway_rest_api.fleet_api.id
+  stage_name  = aws_api_gateway_stage.prod.stage_name
+  method_path = "*/*"
+
+  settings {
+    throttling_rate_limit  = 15
+    throttling_burst_limit = 2000
+  }
+}
+
 resource "aws_api_gateway_usage_plan" "throttle" {
   name = "reto2-throttle"
 
