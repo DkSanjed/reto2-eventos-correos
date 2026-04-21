@@ -1,0 +1,24 @@
+{
+  "name": "diplomadoarquitectura",
+  "version": "1.0.0",
+  "description": "",
+  "main": "k6-script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juankazul/Entrega2Diplomado.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/juankazul/Entrega2Diplomado/issues"
+  },
+  "homepage": "https://github.com/juankazul/Entrega2Diplomado#readme",
+  "dependencies": {
+    "nodemailer": "^8.0.5"
+  }
+}

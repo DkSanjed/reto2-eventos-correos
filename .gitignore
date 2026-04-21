@@ -1,1 +1,21 @@
+# Dependencias (NUNCA subir esta carpeta, es pesada y se genera sola)
+node_modules/
+
+# Seguridad (NUNCA subir tus claves o contraseñas)
+.env
+
+# Archivos temporales de sistema
+.DS_Store
+Thumbs.db
+
+# Empaquetados (No es necesario subir el ZIP a GitHub si ya tienes el código)
+*.zip
+
+# Archivos de configuración de Node que no pediste subir
+package-lock.json
+
+#url aws
 url_prod.txt
+
+#actividad
+*.pdf
