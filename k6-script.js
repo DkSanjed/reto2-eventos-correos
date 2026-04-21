@@ -14,7 +14,7 @@ export const options = {
 };
 
 // Reemplaza esto con tu URL de invocación de API Gateway (la que termina en /prod/eventos)
-const URL_API_GATEWAY = 'https://orp0amvto2.execute-api.us-east-2.amazonaws.com/prod/eventos';
+const URL_API_GATEWAY = 'Insertar_aquí_tu_URL_de_API_Gateway/prod/eventos';
 
 export default function () {
     // 2. Generación aleatoria del tipo de evento
