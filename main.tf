@@ -91,10 +91,11 @@ resource "aws_api_gateway_resource" "events" {
 }
 
 resource "aws_api_gateway_method" "post_events" {
-  rest_api_id   = aws_api_gateway_rest_api.fleet_api.id
-  resource_id   = aws_api_gateway_resource.events.id
-  http_method   = "POST"
-  authorization = "NONE"
+  rest_api_id      = aws_api_gateway_rest_api.fleet_api.id
+  resource_id      = aws_api_gateway_resource.events.id
+  http_method      = "POST"
+  authorization    = "NONE"
+  api_key_required = true
 }
 
 resource "aws_api_gateway_integration" "lambda_integration" {
@@ -122,7 +123,6 @@ resource "aws_api_gateway_stage" "prod" {
   stage_name    = "prod"
 }
 
-# Rate 15 req/s — Burst valor predeterminado (2000)
 resource "aws_api_gateway_usage_plan" "throttle" {
   name = "reto2-throttle"
 
@@ -135,6 +135,16 @@ resource "aws_api_gateway_usage_plan" "throttle" {
     rate_limit  = 15
     burst_limit = 2000
   }
+}
+
+resource "aws_api_gateway_api_key" "fleet_key" {
+  name = "reto2-fleet-key"
+}
+
+resource "aws_api_gateway_usage_plan_key" "fleet_key" {
+  key_id        = aws_api_gateway_api_key.fleet_key.id
+  key_type      = "API_KEY"
+  usage_plan_id = aws_api_gateway_usage_plan.throttle.id
 }
 
 resource "aws_lambda_permission" "apigw" {

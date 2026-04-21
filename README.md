@@ -209,16 +209,14 @@ Lambda registra dos eventos clave:
 
 ```bash
 # 1. Inicializar Terraform
-GODEBUG=preferIPv4=1 terraform init
+terraform init
 
 # 2. Ver los recursos que se van a crear
-GODEBUG=preferIPv4=1 terraform plan -var="alert_email=tu@gmail.com"
+terraform plan -var="alert_email=tu@gmail.com"
 
 # 3. Crear la infraestructura
-GODEBUG=preferIPv4=1 terraform apply -var="alert_email=tu@gmail.com"
+terraform apply -var="alert_email=tu@gmail.com"
 ```
-
-> **Nota:** `GODEBUG=preferIPv4=1` es necesario si tu red no tiene IPv6 funcional (error `no such host`).
 
 Al finalizar, Terraform muestra la URL del endpoint:
 
@@ -229,7 +227,7 @@ endpoint_url = "https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/prod/even
 ### Destruir la infraestructura
 
 ```bash
-GODEBUG=preferIPv4=1 terraform destroy -var="alert_email=tu@gmail.com"
+terraform destroy -var="alert_email=tu@gmail.com"
 ```
 
 ---
@@ -261,19 +259,3 @@ vus............................: 10      min=10  max=10
 | Instancias Lambda simultáneas | máx. 10 |
 | Timeout Lambda | 30s |
 | Tiempo máximo de entrega del correo | < 15s para puntaje máximo |
-
----
-
-## Rúbrica de Evaluación
-
-| Criterio | Puntos |
-|---|---|
-| Justificación de Decisiones de Arquitectura | 0.5 |
-| Atributo de Calidad más Importante | 0.5 |
-| Diagrama de Arquitectura | 0.5 |
-| Tácticas de Arquitectura | 1.0 |
-| **Subtotal Documentación Técnica** | **2.5** |
-| Correo llega en menos de 15 segundos | 2.5 |
-| Correo llega entre 15 y 45 segundos | 1.5 |
-| Correo llega después de 45 segundos | 0.5 |
-| **Subtotal Demostración en Vivo** | **2.5** |
