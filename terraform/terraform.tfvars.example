@@ -1,0 +1,5 @@
+aws_region       = "us-east-1"
+project_name     = "reto2-fleet-alerts"
+environment      = "prod"
+alert_email_to   = "ericknieto44@gmail.com"
+alert_email_from = "ericknieto44@gmail.com"

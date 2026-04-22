@@ -1,0 +1,31 @@
+﻿# Logs de ejecución — Reto 2 — 2026-04-21 15:03:36
+
+## k6 resultado: 1000/1000 checks OK, 0% fallos, duración 11.3s
+
+## Muestra de [EMERGENCY_RECEIVED]
+[INFO]	2026-04-21T20:02:00.839Z	e816f61a-68e1-5bc0-979b-947bb1061040	[EMERGENCY_RECEIVED] ts=2026-04-21T20:02:00.839684+00:00 message_id=4dad588c-ca61-4394-a3bc-6896c8e29640 plate=TEST-SMOKE-001 payload={"type": "Emergency", "vehicle_plate": "TEST-SMOKE-001", "coordinates": {"latitude": 4.711, "longitude": -74.072}, "status": "OK"}
+	[INFO]	2026-04-21T20:02:28.789Z	2da412e1-9083-5b11-98de-70804a974de4	[EMERGENCY_RECEIVED] ts=2026-04-21T20:02:28.789003+00:00 message_id=c9826b94-fa75-4868-ae49-a68d81a02d34 plate=RKU-370 payload={"type": "Emergency", "vehicle_plate": "RKU-370", "coordinates": {"latitude": "-30.315726", "longitude": "-12.122523"}, "status": "OK"}
+	[INFO]	2026-04-21T20:02:28.915Z	7ff8e128-47a3-5894-bb49-83499db7111f	[EMERGENCY_RECEIVED] ts=2026-04-21T20:02:28.915909+00:00 message_id=7de346df-4654-42ab-8544-a14f868ebb2b plate=DHS-407 payload={"type": "Emergency", "vehicle_plate": "DHS-407", "coordinates": {"latitude": "13.653556", "longitude": "-73.140903"}, "status": "OK"}
+	[INFO]	2026-04-21T20:02:28.944Z	61724bf2-dc2d-5080-bc31-299306393942	[EMERGENCY_RECEIVED] ts=2026-04-21T20:02:28.944887+00:00 message_id=a7b4a0bc-b767-4ac7-9265-856c67c17926 plate=JGJ-535 payload={"type": "Emergency", "vehicle_plate": "JGJ-535", "coordinates": {"latitude": "-88.018744", "longitude": "-115.582691"}, "status": "OK"}
+	[INFO]	2026-04-21T20:02:29.031Z	f82b37fd-99ec-5d10-8ee3-559c43f82be5	[EMERGENCY_RECEIVED] ts=2026-04-21T20:02:29.030976+00:00 message_id=afe9d419-4359-4c15-a363-a3adcdf982af plate=SKB-458 payload={"type": "Emergency", "vehicle_plate": "SKB-458", "coordinates": {"latitude": "-28.025873", "longitude": "-87.318985"}, "status": "OK"}
+	[INFO]	2026-04-21T20:02:29.103Z	23c38c41-1ff8-5b16-ba6d-ee20c5ed71a4	[EMERGENCY_RECEIVED] ts=2026-04-21T20:02:29.103483+00:00 message_id=b9f06371-31d0-476c-b440-b01c3c3c3b50 plate=EMX-497 payload={"type": "Emergency", "vehicle_plate": "EMX-497", "coordinates": {"latitude": "-88.409834", "longitude": "-11.417901"}, "status": "OK"}
+	[INFO]	2026-04-21T20:02:29.438Z	932d6a90-be06-5d28-866f-08f16413979a	[EMERGENCY_RECEIVED] ts=2026-04-21T20:02:29.438425+00:00 message_id=148d171d-aa80-4268-a930-d866ff079624 plate=PLL-035 payload={"type": "Emergency", "vehicle_plate": "PLL-035", "coordinates": {"latitude": "-70.993854", "longitude": "135.794111"}, "status": "OK"}
+	[INFO]	2026-04-21T20:02:29.714Z	dcd54cfb-8ed2-574c-bc0c-2e9a54c7aec7	[EMERGENCY_RECEIVED] ts=2026-04-21T20:02:29.714403+00:00 message_id=b0b86ab5-2010-4a3d-8d4f-cf65d73b023a plate=ABH-545 payload={"type": "Emergency", "vehicle_plate": "ABH-545", "coordinates": {"latitude": "30.526241", "longitude": "-116.968621"}, "status": "OK"}
+	[INFO]	2026-04-21T20:02:29.910Z	e5c2cc36-8d2f-5c35-b8c0-ae57573a0687	[EMERGENCY_RECEIVED] ts=2026-04-21T20:02:29.910851+00:00 message_id=c8e120b1-fdb1-4612-baca-4591ad3c939f plate=VJC-397 payload={"type": "Emergency", "vehicle_plate": "VJC-397", "coordinates": {"latitude": "25.890670", "longitude": "126.234779"}, "status": "OK"}
+	[INFO]	2026-04-21T20:02:29.980Z	6f75f106-e06b-509a-a8b8-93673a7e8847	[EMERGENCY_RECEIVED] ts=2026-04-21T20:02:29.980043+00:00 message_id=b22383dc-c40f-400c-861c-d1b2abc988ec plate=HXN-246 payload={"type": "Emergency", "vehicle_plate": "HXN-246", "coordinates": {"latitude": "36.331642", "longitude": "-37.089422"}, "status": "OK"}
+
+None
+
+## Muestra de [EMAIL_SENT]
+[INFO]	2026-04-21T20:02:01.069Z	e816f61a-68e1-5bc0-979b-947bb1061040	[EMAIL_SENT] ts=2026-04-21T20:02:01.069628+00:00 message_id=4dad588c-ca61-4394-a3bc-6896c8e29640 plate=TEST-SMOKE-001 to=ericknieto44@gmail.com
+	[INFO]	2026-04-21T20:02:28.887Z	2da412e1-9083-5b11-98de-70804a974de4	[EMAIL_SENT] ts=2026-04-21T20:02:28.887624+00:00 message_id=c9826b94-fa75-4868-ae49-a68d81a02d34 plate=RKU-370 to=ericknieto44@gmail.com
+	[INFO]	2026-04-21T20:02:29.028Z	7ff8e128-47a3-5894-bb49-83499db7111f	[EMAIL_SENT] ts=2026-04-21T20:02:29.028377+00:00 message_id=7de346df-4654-42ab-8544-a14f868ebb2b plate=DHS-407 to=ericknieto44@gmail.com
+	[INFO]	2026-04-21T20:02:29.161Z	61724bf2-dc2d-5080-bc31-299306393942	[EMAIL_SENT] ts=2026-04-21T20:02:29.161775+00:00 message_id=a7b4a0bc-b767-4ac7-9265-856c67c17926 plate=JGJ-535 to=ericknieto44@gmail.com
+	[INFO]	2026-04-21T20:02:29.216Z	23c38c41-1ff8-5b16-ba6d-ee20c5ed71a4	[EMAIL_SENT] ts=2026-04-21T20:02:29.216116+00:00 message_id=b9f06371-31d0-476c-b440-b01c3c3c3b50 plate=EMX-497 to=ericknieto44@gmail.com
+	[INFO]	2026-04-21T20:02:29.254Z	f82b37fd-99ec-5d10-8ee3-559c43f82be5	[EMAIL_SENT] ts=2026-04-21T20:02:29.254577+00:00 message_id=afe9d419-4359-4c15-a363-a3adcdf982af plate=SKB-458 to=ericknieto44@gmail.com
+	[INFO]	2026-04-21T20:02:29.677Z	932d6a90-be06-5d28-866f-08f16413979a	[EMAIL_SENT] ts=2026-04-21T20:02:29.677933+00:00 message_id=148d171d-aa80-4268-a930-d866ff079624 plate=PLL-035 to=ericknieto44@gmail.com
+	[INFO]	2026-04-21T20:02:29.823Z	dcd54cfb-8ed2-574c-bc0c-2e9a54c7aec7	[EMAIL_SENT] ts=2026-04-21T20:02:29.823766+00:00 message_id=b0b86ab5-2010-4a3d-8d4f-cf65d73b023a plate=ABH-545 to=ericknieto44@gmail.com
+	[INFO]	2026-04-21T20:02:30.071Z	6f75f106-e06b-509a-a8b8-93673a7e8847	[EMAIL_SENT] ts=2026-04-21T20:02:30.071595+00:00 message_id=b22383dc-c40f-400c-861c-d1b2abc988ec plate=HXN-246 to=ericknieto44@gmail.com
+	[INFO]	2026-04-21T20:02:30.083Z	e5c2cc36-8d2f-5c35-b8c0-ae57573a0687	[EMAIL_SENT] ts=2026-04-21T20:02:30.083629+00:00 message_id=c8e120b1-fdb1-4612-baca-4591ad3c939f plate=VJC-397 to=ericknieto44@gmail.com
+
+None
