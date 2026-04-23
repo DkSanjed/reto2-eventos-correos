@@ -1,5 +1,14 @@
+# Terraform
 .terraform/
-*.exe
-terraform.tfstate*
+*.tfstate
+*.tfstate.backup
 .terraform.lock.hcl
+
+# ✅ AGREGADO: Credenciales sensibles - NUNCA subir a GitHub
+terraform.tfvars
+*.tfvars
+
+# Binarios
 node_modules/
+*.exe
+*.zip
