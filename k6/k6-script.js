@@ -12,7 +12,14 @@
 //   terraform output -raw api_key
 //
 // Variables opcionales:
-//   EMERGENCY_RATE  (default 0.05 = 5% de eventos Emergency)
+//   EMERGENCY_MODE   "single" (default) | "rate"
+//                    - "single": SOLO la última iteración (la N-ésima) es Emergency.
+//                                Las otras N-1 son Position. Sirve para medir
+//                                con precisión el delta "último envío en k6 → email"
+//                                (la rúbrica del reto). UN solo correo.
+//                    - "rate": cada iteración es Emergency con probabilidad
+//                              EMERGENCY_RATE. Sirve para pruebas de carga del email.
+//   EMERGENCY_RATE   (default 0.05 = 5%; solo aplica si EMERGENCY_MODE=rate)
 
 import http from 'k6/http';
 import { check } from 'k6';
@@ -44,7 +51,12 @@ if (!API_KEY) {
   throw new Error('Falta variable de entorno API_KEY. Obtén la key con: terraform output -raw api_key');
 }
 
+const EMERGENCY_MODE = (__ENV.EMERGENCY_MODE || 'single').toLowerCase();
+if (!['single', 'rate'].includes(EMERGENCY_MODE)) {
+  throw new Error(`EMERGENCY_MODE invalido: "${EMERGENCY_MODE}". Usa "single" o "rate".`);
+}
 const EMERGENCY_RATE = parseFloat(__ENV.EMERGENCY_RATE || '0.05');
+const TOTAL_ITERATIONS = 1000;  // debe coincidir con options.scenarios.default.iterations
 
 function randomPlate() {
   const letters = 'ABCDEFGHJKLMNPRSTUVWXYZ';
@@ -54,14 +66,25 @@ function randomPlate() {
 }
 
 export default function () {
-  const isEmergency = Math.random() < EMERGENCY_RATE;
   // request_seq: índice global 1..N de la iteración en el test (único entre VUs).
   // Se usa en el subject del correo para conteo rápido desde Gmail.
-  // total_requests: límite superior del test (iterations option).
   const requestSeq = exec.scenario.iterationInTest + 1; // 1-indexed para humanos
-  const totalRequests = exec.scenario.iterationInTest >= 0
-    ? (exec.test.options.scenarios.default.iterations || 0)
-    : 0;
+
+  // Decisión Emergency vs Position según EMERGENCY_MODE.
+  let isEmergency;
+  if (EMERGENCY_MODE === 'single') {
+    // SOLO la última iteración es Emergency. La rúbrica mide:
+    //   tiempo = (último envío k6) → (llegada del correo)
+    // y como el último envío k6 ES la única Emergency, la medición es exacta.
+    isEmergency = (requestSeq === TOTAL_ITERATIONS);
+  } else {
+    isEmergency = Math.random() < EMERGENCY_RATE;
+  }
+
+  // Log visible en la consola para correlacionar con CloudWatch / Gmail.
+  if (isEmergency) {
+    console.log(`>>> EMERGENCY sent at iteration ${requestSeq} / ${TOTAL_ITERATIONS} — sent_at=${new Date().toISOString()}`);
+  }
 
   const payload = JSON.stringify({
     type: isEmergency ? 'Emergency' : 'Position',
@@ -73,7 +96,7 @@ export default function () {
     status: 'OK',
     sent_at: new Date().toISOString(),
     request_seq: requestSeq,
-    total_requests: totalRequests,
+    total_requests: TOTAL_ITERATIONS,
   });
 
   const res = http.post(API_URL, payload, {
