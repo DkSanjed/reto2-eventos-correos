@@ -1,0 +1,2 @@
+# boto3 ya viene incluido en el runtime Python 3.12 de Lambda.
+# Mantener este archivo vacío para documentar intención; si se agregan deps, hay que empaquetar.
